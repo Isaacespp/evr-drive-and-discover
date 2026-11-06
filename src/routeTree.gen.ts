@@ -10,33 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as TestDriveRouteImport } from './routes/test-drive'
+import { Route as EstoqueIndexRouteImport } from './routes/estoque.index'
+import { Route as EstoqueIdRouteImport } from './routes/estoque.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestDriveRoute = TestDriveRouteImport.update({
+  id: '/test-drive',
+  path: '/test-drive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstoqueIndexRoute = EstoqueIndexRouteImport.update({
+  id: '/estoque/',
+  path: '/estoque/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstoqueIdRoute = EstoqueIdRouteImport.update({
+  id: '/estoque/$id',
+  path: '/estoque/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/test-drive': typeof TestDriveRoute
+  '/estoque/$id': typeof EstoqueIdRoute
+  '/estoque/': typeof EstoqueIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/test-drive': typeof TestDriveRoute
+  '/estoque/$id': typeof EstoqueIdRoute
+  '/estoque': typeof EstoqueIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/test-drive': typeof TestDriveRoute
+  '/estoque/$id': typeof EstoqueIdRoute
+  '/estoque/': typeof EstoqueIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contato' | '/test-drive' | '/estoque/$id' | '/estoque/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contato' | '/test-drive' | '/estoque/$id' | '/estoque'
+  id:
+    '__root__' | '/' | '/contato' | '/test-drive' | '/estoque/$id' | '/estoque/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  TestDriveRoute: typeof TestDriveRoute
+  EstoqueIdRoute: typeof EstoqueIdRoute
+  EstoqueIndexRoute: typeof EstoqueIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +89,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test-drive': {
+      id: '/test-drive'
+      path: '/test-drive'
+      fullPath: '/test-drive'
+      preLoaderRoute: typeof TestDriveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estoque/': {
+      id: '/estoque/'
+      path: '/estoque'
+      fullPath: '/estoque/'
+      preLoaderRoute: typeof EstoqueIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estoque/$id': {
+      id: '/estoque/$id'
+      path: '/estoque/$id'
+      fullPath: '/estoque/$id'
+      preLoaderRoute: typeof EstoqueIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  TestDriveRoute: TestDriveRoute,
+  EstoqueIdRoute: EstoqueIdRoute,
+  EstoqueIndexRoute: EstoqueIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
