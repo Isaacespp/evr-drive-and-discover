@@ -44,6 +44,7 @@ export function Header() {
           target="_blank"
           rel="noreferrer"
           aria-label="Seguir a EVR CAR no Instagram"
+          onClick={() => window.__lovableEvents?.track?.("project.instagram_click", { placement: "header" })}
           className="shrink-0 text-muted-foreground transition hover:text-primary"
         >
           <Instagram className="h-5 w-5" />
@@ -64,6 +65,7 @@ export function Footer() {
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noreferrer"
+          onClick={() => window.__lovableEvents?.track?.("project.instagram_click", { placement: "footer" })}
           className="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
         >
           <Instagram className="h-5 w-5" />@{INSTAGRAM_HANDLE}
@@ -80,6 +82,7 @@ export function InstagramFollow({ label = "Seguir no Instagram" }: { label?: str
       href={INSTAGRAM_URL}
       target="_blank"
       rel="noreferrer"
+      onClick={() => window.__lovableEvents?.track?.("project.instagram_click", { placement: "home" })}
       className="inline-flex shrink-0 items-center gap-2 border border-primary px-6 py-3 font-display font-bold uppercase text-primary transition hover:bg-primary hover:text-primary-foreground"
     >
       <Instagram className="h-5 w-5" />

@@ -41,6 +41,7 @@ function Contato() {
         href={INSTAGRAM_URL}
         target="_blank"
         rel="noreferrer"
+        onClick={() => window.__lovableEvents?.track?.("project.instagram_click", { placement: "contact" })}
         className="mt-3 flex items-center justify-between rounded-md border border-border bg-card p-4 font-semibold hover:border-primary"
       >
         <span className="flex items-center gap-3">

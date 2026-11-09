@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { cars, whatsappLink } from "@/data/cars";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/test-drive")({
   validateSearch: (s: Record<string, unknown>): { carro?: string | undefined } => ({ carro: typeof s["carro"] === "string" ? s["carro"] : undefined }),
@@ -37,9 +38,13 @@ function TestDrive() {
     if (!r.success) return setErr(r.error.issues[0]?.message ?? "Verifique os dados");
     setErr("");
     const car = cars.find((c) => c.id === r.data.carro);
+    const carName = `${car?.name ?? r.data.carro} ${car?.year ?? ""}`.trim();
     const [y, m, d] = r.data.data.split("-");
-    const msg = `Olá, EVR CAR! Quero agendar um test drive.\nNome: ${r.data.nome}\nTelefone: ${r.data.telefone}\nCarro: ${car?.name} ${car?.year}\nData: ${d}/${m}/${y}\nHorário: ${r.data.horario}`;
+    const msg = `Olá, EVR CAR! Quero agendar um test drive.\nNome: ${r.data.nome}\nTelefone: ${r.data.telefone}\nCarro: ${carName}\nData: ${d}/${m}/${y}\nHorário: ${r.data.horario}`;
     window.open(whatsappLink(msg), "_blank");
+    void supabase.from("test_drive_requests").insert({
+      nome: r.data.nome, telefone: r.data.telefone, carro: carName, data: r.data.data, horario: r.data.horario,
+    }).then(({ error }) => { if (error) console.error(error); });
   }
 
   return (

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.instagram_click": {
+      "event_schema_version": 1,
+      "description": "A visitor clicked a link to the store's Instagram profile.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "placement"
+        ],
+        "properties": {
+          "placement": {
+            "type": "string",
+            "enum": [
+              "header",
+              "home",
+              "contact",
+              "footer"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

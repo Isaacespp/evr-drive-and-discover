@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Test drive requests are saved to the database and also sent via WhatsApp; only users with the admin role (first account created) can read them at /admin.
