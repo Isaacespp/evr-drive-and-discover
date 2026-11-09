@@ -3,7 +3,7 @@ import hatch from "@/assets/car-hatch.jpg";
 import sedan from "@/assets/hero-car.jpg";
 
 // Número de WhatsApp da loja (formato internacional, só dígitos)
-export const WHATSAPP_NUMBER = "5585999999999";
+export const WHATSAPP_NUMBER = "5598981332949";
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
