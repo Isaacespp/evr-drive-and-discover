@@ -1,7 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 import logo from "@/assets/evr-logo.png.asset.json";
-import { whatsappLink, type Car, formatPrice, formatKm } from "@/data/cars";
+import {
+  whatsappLink,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  type Car,
+  formatPrice,
+  formatKm,
+} from "@/data/cars";
 
 export function Header() {
   const links = [
@@ -32,6 +39,15 @@ export function Header() {
             </Link>
           ))}
         </nav>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Seguir a EVR CAR no Instagram"
+          className="shrink-0 text-muted-foreground transition hover:text-primary"
+        >
+          <Instagram className="h-5 w-5" />
+        </a>
       </div>
     </header>
   );
@@ -44,9 +60,31 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-10 text-center text-sm text-muted-foreground">
         <img src={logo.url} alt="" className="h-16 w-16" />
         <p className="font-display uppercase tracking-widest text-foreground">EVR CAR Multimarcas</p>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+        >
+          <Instagram className="h-5 w-5" />@{INSTAGRAM_HANDLE}
+        </a>
         <p>© {new Date().getFullYear()} EVR CAR. Todos os direitos reservados.</p>
       </div>
     </footer>
+  );
+}
+
+export function InstagramFollow({ label = "Seguir no Instagram" }: { label?: string }) {
+  return (
+    <a
+      href={INSTAGRAM_URL}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex shrink-0 items-center gap-2 border border-primary px-6 py-3 font-display font-bold uppercase text-primary transition hover:bg-primary hover:text-primary-foreground"
+    >
+      <Instagram className="h-5 w-5" />
+      {label}
+    </a>
   );
 }
 

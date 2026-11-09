@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
-import { whatsappLink } from "@/data/cars";
+import { Instagram, MessageCircle } from "lucide-react";
+import { whatsappLink, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/data/cars";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
       { title: "Contato | EVR CAR Multimarcas" },
-      { name: "description", content: "Fale com um atendente da EVR CAR pelo WhatsApp." },
+      { name: "description", content: "Fale com um atendente da EVR CAR pelo WhatsApp e siga a loja no Instagram." },
       { property: "og:title", content: "Contato EVR CAR" },
       { property: "og:description", content: "Atendimento pelo WhatsApp." },
       { property: "og:type", content: "website" },
@@ -37,6 +37,18 @@ function Contato() {
           </a>
         ))}
       </div>
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-3 flex items-center justify-between rounded-md border border-border bg-card p-4 font-semibold hover:border-primary"
+      >
+        <span className="flex items-center gap-3">
+          <Instagram className="h-5 w-5 text-primary" />
+          Seguir a EVR CAR no Instagram
+        </span>
+        <span className="text-sm text-muted-foreground">@{INSTAGRAM_HANDLE}</span>
+      </a>
     </main>
   );
 }

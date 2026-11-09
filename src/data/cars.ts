@@ -9,6 +9,10 @@ export function whatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+// Perfil do Instagram da loja
+export const INSTAGRAM_HANDLE = "evrcarmultimarcas";
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+
 export type Car = {
   id: string;
   name: string;

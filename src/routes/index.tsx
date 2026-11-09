@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, CalendarCheck, MessageCircle } from "lucide-react";
 import hero from "@/assets/hero-car.jpg";
-import { cars, whatsappLink } from "@/data/cars";
-import { CarCard } from "@/components/site";
+import { cars, whatsappLink, INSTAGRAM_HANDLE } from "@/data/cars";
+import { CarCard, InstagramFollow } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -69,6 +69,18 @@ function Index() {
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cars.map((c) => <CarCard key={c.id} car={c} />)}
+        </div>
+      </section>
+
+      <section className="mx-auto mt-16 max-w-6xl px-4">
+        <div className="flex flex-col items-start gap-4 rounded-md border border-border bg-card p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold">Acompanhe a EVR CAR no Instagram</h2>
+            <p className="text-muted-foreground">
+              Carros chegando, novidades e bastidores da loja em @{INSTAGRAM_HANDLE}.
+            </p>
+          </div>
+          <InstagramFollow />
         </div>
       </section>
 
