@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Evr Drive And Discover
+
+Crie um site para uma loja de revenda de carros onde as pessoas possam conhecer o catálogo de carros que estejam na loja e as informações deles, possam agendar testes drivers e ter como se comunicar com algum atendente que envie para o WhatsApp, o nome da loja é EVR CAR, use a logo e as cores da logo para criar um site que relembre a própria logo
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://evr-drive-and-discover.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/45026ae0-4f5a-4139-aad6-dbd0bc6e1d61).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
